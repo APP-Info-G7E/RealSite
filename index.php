@@ -16,7 +16,7 @@
             
             
             <div id="logo">
-                <a href="http://localhost/tests/index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
+                <a href="index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
                
                 <p class="titre">Pomme d'Happy</p>
                
@@ -33,8 +33,8 @@
 						<p class=annonces><a href="Annonces.html">Annonces</a></p>
 						<p  class=monpanier><a href="monpanier.html">Mon panier</a></li>
 						<p class=forum><a href="forum.html">Forum</a></li>
-                        <p class=connexion2><a href="http://localhost/tests/connexion.php">Connexion</a></li>
-                        <p class=inscription><a href="http://localhost/tests/inscription.php">Inscription</a></li>
+                        <p class=connexion2><a href="connexion.php">Connexion</a></li>
+                        <p class=inscription><a href="inscription.php">Inscription</a></li>
                         
                         
                     
