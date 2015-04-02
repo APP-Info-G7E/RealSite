@@ -16,7 +16,7 @@
             
             
             <div id="logo">
-                <a href="index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
+                <a href="http://localhost/tests/index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
                
                 <p class="titre">Pomme d'Happy</p>
                
@@ -33,8 +33,8 @@
 						<p class=annonces><a href="Annonces.html">Annonces</a></p>
 						<p  class=monpanier><a href="monpanier.html">Mon panier</a></li>
 						<p class=forum><a href="forum.html">Forum</a></li>
-                        <p class=connexion2><a href="connexion.php">Connexion</a></li>
-                        <p class=inscription><a href="inscription.php">Inscription</a></li>
+                        <p class=connexion2><a href="http://localhost/tests/connexion.php">Connexion</a></li>
+                        <p class=inscription><a href="http://localhost/tests/inscription.php">Inscription</a></li>
                         
                         
                     
@@ -99,16 +99,16 @@
         <div>
             
         <p class="acheter">Acheter</p>
-        <p class="vendre"><a href="vendre.php">Vendre</a></p>
-        <p class="echanger"><a href="echanger.php">Echanger</a></p>
+        <p class="vendre"><a href="http://localhost/tests/vendre.php">Vendre</a></p>
+        <p class="echanger"><a href="http://localhost/tests/echanger.php">Echanger</a></p>
             
         </div>
         
         <div>
             
-             <p class=mlegal><a href="mentionlegales.php">Mentions légales</a></p>
-            <p class=faq><a href="FAQ.php">FAQ</a></p>
-             <p class=qsn><a href="sn.php">Qui sommes nous ?</a></p>
+             <p class=mlegal><a href="http://localhost/tests/mentionlegales.php">Mentions légales</a></p>
+            <p class=faq><a href="http://localhost/tests/FAQ.php">FAQ</a></p>
+             <p class=qsn><a href="http://localhost/tests/qsn.php">Qui sommes nous ?</a></p>
         
         </div>
         

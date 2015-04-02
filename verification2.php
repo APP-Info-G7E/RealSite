@@ -30,6 +30,7 @@
 if(!empty($_POST['verif_code']) && !empty($_POST['pseudo'])  && !empty($_POST['mp']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['ville']) && !empty($_POST['codepostale']) && !empty($_POST['mp2']) && !empty($_POST['mail'])){
 }  else {
       echo 'Il faut remplir tous les champs.';
+    
      header ("Refresh: 2;URL=http://localhost/tests/inscription.php");
 }
     
@@ -129,6 +130,9 @@ $req->execute(array(
 ?>
         
         
+ 
+        
+        
 
         
      
@@ -138,5 +142,7 @@ $req->execute(array(
            </body>
     
 </html>
+
+
         
 

@@ -10,7 +10,24 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
         <link href="style.css" rel="stylesheet" />
+         <?php session_start(); ?>
+    
 
+   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -54,7 +71,7 @@ function verifMail(champ)
             
             
             <div id="logo">
-                <a href="&index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
+                <a href="http://localhost/tests/index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
                
                 <p class="titre">Pomme d'Happy</p>
                
@@ -67,12 +84,12 @@ function verifMail(champ)
 				<div id="nav">
 					
                         
-                    <p  class=accueil><a href="index.php">Accueil</a></p>
+                    <p  class=accueil><a href="http://localhost/tests/index.php">Accueil</a></p>
 						<p class=annonces><a href="Annonces.html">Annonces</a></p>
 						<p  class=monpanier><a href="monpanier.html">Mon panier</a>
 						<p class=forum><a href="forum.html">Forum</a>
-                        <p class=connexion2><a href="connexion.php">Connexion</a>
-                        <p class=inscription><a href="inscription.php">Inscription</a>
+                        <p class=connexion2><a href="http://localhost/tests/connexion.php">Connexion</a>
+                        <p class=inscription><a href="http://localhost/tests/inscription.php">Inscription</a>
                         
                         
                     
@@ -84,6 +101,7 @@ function verifMail(champ)
         
 
  <form id="formuinscription" method="post" action="verification2.php">
+
      
      <fieldset>
          
@@ -165,16 +183,19 @@ function verifMail(champ)
 						<p><img src="verif_code_gen.php" alt="Code de vérification" /></p>
 
 <p><label>Merci de recopier le code de l'image ci-dessus :</label>  <input type="text" name="verif_code" /></p>
+
+</br></br>
 						<p><input type="submit" value="s'inscrire" /></p>
  
 </form>
 
 
+
         </div>
 
- <p class=mlegal3><a href="mentionlegales.php">Mentions légales</a></p>
-            <p class=faq3><a href="FAQ.php">FAQ</a></p>
-             <p class=qsn3><a href="qsn.php">Qui sommes nous ?</a></p>
+ <p class=mlegal3><a href="http://localhost/tests/mentionlegales.php">Mentions légales</a></p>
+            <p class=faq3><a href="http://localhost/tests/FAQ.php">FAQ</a></p>
+             <p class=qsn3><a href="http://localhost/tests/qsn.php">Qui sommes nous ?</a></p>
 
 
 

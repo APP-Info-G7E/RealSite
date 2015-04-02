@@ -19,8 +19,6 @@
      
      <fieldset>
          
-     
-     
       <legend>Mon Happy échange</legend>
          
             <p><label for="titreannonce">Titre de l'annonce :</label>
