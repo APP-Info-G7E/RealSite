@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 
@@ -10,62 +10,22 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
         <link href="style.css" rel="stylesheet" />
-         <?php session_start(); ?>
+       
     
-
-   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <script language="JavaScript">
-            function surligne(champ, erreur)
-{
-   if(erreur)
-      champ.style.backgroundColor = "#F35C3F";
-   else
-      champ.style.backgroundColor = "#48b31f";
-}
-            
-function verifMail(champ)
-{
-   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-   if(!regex.test(champ.value))
-   {
-      surligne(champ, true);
-      return false;
-   }
-   else
-   {
-      surligne(champ, false);
-      return true;
-   }
-}
-
-</script>        
-        
-    
-
+     
+     
         
     </head>
 
     <body>
         
 
-    
+            <?php
+
+        $bdd = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8', 'root', ''); 
+
+?>
+      
        
         <div id="header">
             
@@ -100,26 +60,18 @@ function verifMail(champ)
             <div id="inscription">
         
 
- <form id="formuinscription" method="post" action="verification2.php">
-
-     
+ <form id="formuinscription" method="post" action="verification2.php"  >
      <fieldset>
-         
-     
-     
       <legend>Informations personnelles</legend>
-             </br>
-        </br>
      
                <p><label for="nom">Nom*  : </label>
-
-                   <input type="text" name="nom" id="nom" /></p>
+                   <input type="text" name="nom" id="nom"  /></p>
         
         
         
           <p><label for="prenom">Prénom*  : </label>
 
-              <input type="text" name="prenom" id="prenom" /></p>
+              <input type="text" name="prenom" id="prenom"   /></p>
      
      
        <p><label for="adresse">Adresse :</label>
@@ -127,23 +79,66 @@ function verifMail(champ)
               <input type="text" name="adresse" id="adresse" /></p>
      
      
-      <p><label for="codepostale">Code postale*  : </label>
-
-              <input type="text" name="codepostale" id="codepostale" /></p>
-     
-     
-      <p><label for="ville">Ville :</label>
-
-              <input type="text" name="ville" id="ville" /></p>
-     
-     
-      <p><label for="pays">Pays : </label>
-            <select id="pays" name="pays">
-                <option value="ca">Italie</option>
-                <option value="us">Allemagne</option>
-                <option value="be">Belgique</option>
-                <option value="fr">France</option>
+      <p><label for="departement">Département : </label>
+            <select id="departement" name="departement">
+                                <option value="choix1">Aucun</option>  
+<?php
+ 
+$reponse = $bdd->query('SELECT DISTINCT ville_departement FROM mydb.villesfrance');
+ 
+while ($donnees = $reponse->fetch())
+{
+?>
+           <option value="<?php echo $donnees['ville_departement']; ?>"> <?php echo $donnees['ville_departement']; ?></option>
+<?php
+}
+ 
+?>
           </select></p>
+         
+               <p><label for="codepostale">Code postal : </label>
+            <select id="codepostale" name="codepostale">
+                                <option value="choix1">Aucun</option>  
+<?php
+
+$departement = $_POST['departement'];
+ 
+$reponse = $bdd->query('SELECT DISTINCT ville_code_postal FROM mydb.villesfrance ORDER BY ville_code_postal ASC');
+ 
+while ($donnees = $reponse->fetch())
+{
+?>
+           <option value="<?php echo $donnees['ville_code_postal']; ?>"> <?php echo $donnees['ville_code_postal']; ?></option>
+<?php
+}
+ 
+?>
+          </select></p>
+         
+         
+         
+         
+                     <p><label for="ville">Ville : </label>
+            <select id="ville" name="ville">
+                                <option value="choix1">Aucun</option>  
+<?php
+ 
+$reponse = $bdd->query('SELECT villeID,ville_nom FROM mydb.villesfrance ORDER BY ville_nom ASC');
+ 
+while ($donnees = $reponse->fetch())
+{
+?>
+           <option value="<?php echo $donnees['ville_nom']; ?>"> <?php echo $donnees['ville_nom']; ?></option>
+<?php
+}
+ 
+?>
+          </select></p>
+         
+         
+         
+         
+         
         </fieldset>
      
     </br>
@@ -164,32 +159,39 @@ function verifMail(champ)
      
       <p>
             <label for="pseudo">Pseudo*  : </label>
-            <input type="text" id="pseudo" name="pseudo" />
+            <input type="text" id="pseudo" name="pseudo"  />
         </p>
         <p>
             <label for="mp">Mot de passe*  : </label>
-            <input type="password" id="mp" name="mp" />
+            <input type="password" id="mp" name="mp"   />
         </p>
         <p>
             <label for="mp2">Confirmer le mot de passe*  : </label>
-            <input type="password" id="mp2" name="mp2" />
+            <input type="password" id="mp2" name="mp2"   />
         </p>
         <p>
             <label for="mail">Adresse email*  : </label>
-            <input type="text" id="mail" name="mail" onblur="verifMail(this)" /></p>
+            <input type="text" id="mail" name="mail"  /></p>
 </fieldset>
         
      
 						<p><img src="verif_code_gen.php" alt="Code de vérification" /></p>
 
-<p><label>Merci de recopier le code de l'image ci-dessus :</label>  <input type="text" name="verif_code" /></p>
+<p><label for="verif_code" >Recopiez le code ci-dessus* :</label>  <input type="text" id="verif_code"  name="verif_code" /></p>
 
 </br></br>
-						<p><input type="submit" value="s'inscrire" /></p>
+						<p><input type="submit" value="s'inscrire"  /></p>
  
+
+
+
+
+
 </form>
 
+<script type="text/javascript" src="jsinscription.js"></script>
 
+                
 
         </div>
 

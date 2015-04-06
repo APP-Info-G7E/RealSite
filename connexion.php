@@ -1,3 +1,4 @@
+     <?php session_start(); ?>
 <!DOCTYPE html>
 
 <html>
@@ -8,8 +9,8 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
         <link href="style.css" rel="stylesheet" />
+     
         
-        <?php session_start(); ?>
   
         
     </head>
@@ -55,7 +56,7 @@
         
        <div id="connexion">
            
-         <p class="mpoublie"><a href="motdepasseoublie.html">Mot de passe oublié</a></p>
+         <p class="mpoublie"><a href="http://localhost/tests/mpoublie.php">Mot de passe oublié</a></p>
            
           <form id="formuinscription" method="post" action="verification.php">
      

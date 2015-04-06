@@ -49,7 +49,7 @@ html, body, #contenu
     #logo
     {   
         left: 1%;
-        width : 5.5%;
+        width : 4.5%;
         top : 72px;
 		position: fixed;
 		z-index:1;
@@ -58,7 +58,7 @@ html, body, #contenu
     #logo2
     {   
         left: 1%;
-        width : 3.5%;
+        width : 3.3%;
         top : 2px;
 		position: fixed;
 		z-index:1000;
@@ -71,7 +71,7 @@ html, body, #contenu
     {
        
         position: fixed;
-        font-size: 5vw;
+        font-size: 4.5vw;
         color:black;
         top: 56px;
         left: 35%;
@@ -107,7 +107,7 @@ html, body, #contenu
   .forum {
     position : fixed;
     top : 1.5%;
-    right : 40%;
+    right : 41%;
       font-size: 1.5vw;
     }
 
@@ -115,6 +115,13 @@ html, body, #contenu
     position : fixed;
     top : 1.5%;
     right: 23%;
+      font-size: 1.5vw;
+    }
+
+ .deconnexion {
+    position : fixed;
+    top : 1.5%;
+    right: 21.3%;
       font-size: 1.5vw;
     }
 
@@ -249,7 +256,7 @@ p.echanger {
     padding: 4px;
     text-decoration: none;
     position :absolute;
-    top : 650px;
+    top : 690px;
     left : 20%;
 }
 
@@ -264,7 +271,7 @@ p.vendre {
     padding: 4px;
     text-decoration: none;
     position :absolute;
-    top : 650px;
+    top : 690px;
     left : 45%;
 }
 
@@ -279,7 +286,7 @@ p.acheter {
     padding: 4px;
     text-decoration: none;
     position :absolute;
-    top : 650px;
+    top : 690px;
     left : 70%;
 }
 
@@ -339,11 +346,23 @@ p.validation {
     }
 
 
+#monprofil {
+       background-color: white;
+        width: 70%;
+        height: 140%;
+        margin: 5px;
+        top : 26%;
+        left : 15%;
+        position : absolute;
+        z-index: 10;
+    }
+
+
 
 #echanger {
        background-color: white;
         width: 70%;
-        height: 200%;
+        height: 290%;
         margin: 5px;
         top : 25%;
         left : 15%;

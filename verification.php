@@ -36,6 +36,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8', 'root', '');
 
 $req = $bdd->prepare("SELECT IDUtilisateur FROM mydb.utilisateursinscrits WHERE Pseudo = '$pseudo' AND Pass = '$pass_hache' ");
 
+
 $req->execute(array(
 
     'Pseudo' => $pseudo,
@@ -48,8 +49,8 @@ if (!$resultat)
 
 {
 
-    echo 'Mauvais identifiant ou mot de passe !';
-     header ("Refresh: 1;URL=http://localhost/tests/connexion.php");
+    echo '<script>alert("Mauvais identifiant ou mot de passe !")</script>';
+     header ("Refresh: 0;URL=http://localhost/tests/connexion.php");
 
 }
 
@@ -58,30 +59,15 @@ else
 {
 
     
-
-  
-
+    
     $_SESSION['pseudo'] = $pseudo;
-
-    echo 'Vous êtes connecté !';
      header ("Refresh: 0;URL=http://localhost/tests/index.php");
 
 }
 
 ?>
         
-        
-        <?php
 
-if ((isset($_SESSION['login'])) && ($_SESSION['login'] != ''))
-{
-'http://localhost/tests/inscription.php';
-}
-else {
-    exit(); 
-}
-
-?>
         
         
         

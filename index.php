@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +17,7 @@
             
             
             <div id="logo">
-                <a href="http://localhost/tests/index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
+                <a href="index.php"><img src="images/LogoPh.png" alt="accueil" id="logo"></a>        	
                
                 <p class="titre">Pomme d'Happy</p>
                
@@ -33,9 +34,30 @@
 						<p class=annonces><a href="Annonces.html">Annonces</a></p>
 						<p  class=monpanier><a href="monpanier.html">Mon panier</a></li>
 						<p class=forum><a href="forum.html">Forum</a></li>
-                        <p class=connexion2><a href="http://localhost/tests/connexion.php">Connexion</a></li>
-                        <p class=inscription><a href="http://localhost/tests/inscription.php">Inscription</a></li>
-                        
+            
+            <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){ 
+    
+                        echo'<p class=deconnexion><a href="deconnexion.php">Deconnexion</a></p>';
+}
+else {
+                        echo'<p class=connexion2><a href="connexion.php">Connexion</a></p>';
+}
+?>
+            
+            
+            
+            
+                        <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){
+    
+                        echo'<p class=inscription><a href="monprofil.php">Mon profil</a></p>';
+}
+else {
+                        echo'<p class=inscription><a href="inscription.php">Inscription</a></p>';
+}
+?>
+           
                         
                     
 				</div>
@@ -99,8 +121,24 @@
         <div>
             
         <p class="acheter">Acheter</p>
-        <p class="vendre"><a href="http://localhost/tests/vendre.php">Vendre</a></p>
-        <p class="echanger"><a href="http://localhost/tests/echanger.php">Echanger</a></p>
+                        <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){ 
+    
+                        echo'<p class=vendre><a href="vendre.php">Vendre</a></p>';
+}
+else {
+                        echo'<p class=vendre><a href="inscription.php">Vendre</a></p>';
+}
+?>
+                  <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){ 
+    
+                        echo'<p class=echanger><a href="echanger.php">Echanger</a></p>';
+}
+else {
+                        echo'<p class=echanger><a href="inscription.php">Echanger</a></p>';
+}
+?>
             
         </div>
         

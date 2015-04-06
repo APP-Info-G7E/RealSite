@@ -16,8 +16,28 @@
 						<p class=annonces><a href="Annonces.html">Annonces</a></p>
 						<p  class=monpanier><a href="monpanier.html">Mon panier</a></li>
 						<p class=forum><a href="forum.html">Forum</a></li>
-                        <p class=connexion2><a href="http://localhost/tests/connexion.php">Connexion</a></li>
-                        <p class=inscription><a href="http://localhost/tests/inscription.php">Inscription</a></li>
+                                    <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){ 
+    
+                        echo'<p class=deconnexion><a href="deconnexion.php">Deconnexion</a></p>';
+}
+else {
+                        echo'<p class=connexion2><a href="connexion.php">Connexion</a></p>';
+}
+?>
+            
+            
+            
+            
+                        <?php
+if (isset ($_SESSION['pseudo']) && (!empty($_SESSION['pseudo']))){
+    
+                        echo'<p class=inscription><a href="monprofil.php">Mon profil</a></p>';
+}
+else {
+                        echo'<p class=inscription><a href="inscription.php">Inscription</a></p>';
+}
+?>
                         
 					</ul>
                     
