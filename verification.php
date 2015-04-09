@@ -59,14 +59,20 @@ else
 {
 
     
-    
+  
     $_SESSION['pseudo'] = $pseudo;
      header ("Refresh: 0;URL=http://localhost/tests/index.php");
 
 }
 
+
+
+
+
+
 ?>
         
+  
 
         
         

@@ -10,9 +10,34 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,500,900' rel='stylesheet' type='text/css'>
         <link href="style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="jsinscription.js"></script>
        
-    
+        
+                 <script>
+  $(function() {
+
+    $( "#ville" ).autocomplete({
+     source : 'AutocompletionVille.php', minLength : 3
+    });
+  });
+  </script>
+        
+        
+                         <script>
+  $(function() {
+
+    $( "#codepostale" ).autocomplete({
+     source : 'AutocompletionCp.php', minLength : 4
+    });
+  });
+  </script>
+
+
      
+        
      
         
     </head>
@@ -20,11 +45,9 @@
     <body>
         
 
-            <?php
+      
 
-        $bdd = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8', 'root', ''); 
 
-?>
       
        
         <div id="header">
@@ -70,70 +93,30 @@
         
         
           <p><label for="prenom">Prénom*  : </label>
-
-              <input type="text" name="prenom" id="prenom"   /></p>
+          <input type="text" name="prenom" id="prenom"   /></p>
      
      
        <p><label for="adresse">Adresse :</label>
 
               <input type="text" name="adresse" id="adresse" /></p>
      
-     
-      <p><label for="departement">Département : </label>
-            <select id="departement" name="departement">
-                                <option value="choix1">Aucun</option>  
-<?php
- 
-$reponse = $bdd->query('SELECT DISTINCT ville_departement FROM mydb.villesfrance');
- 
-while ($donnees = $reponse->fetch())
-{
-?>
-           <option value="<?php echo $donnees['ville_departement']; ?>"> <?php echo $donnees['ville_departement']; ?></option>
-<?php
-}
- 
-?>
-          </select></p>
-         
-               <p><label for="codepostale">Code postal : </label>
-            <select id="codepostale" name="codepostale">
-                                <option value="choix1">Aucun</option>  
-<?php
+    
 
-$departement = $_POST['departement'];
- 
-$reponse = $bdd->query('SELECT DISTINCT ville_code_postal FROM mydb.villesfrance ORDER BY ville_code_postal ASC');
- 
-while ($donnees = $reponse->fetch())
-{
-?>
-           <option value="<?php echo $donnees['ville_code_postal']; ?>"> <?php echo $donnees['ville_code_postal']; ?></option>
-<?php
-}
- 
-?>
-          </select></p>
+        
+         
+                   <p><label for="codepostale">Code postal* : </label>
+            <input id="codepostale" name="codepostale">
+                    
+
          
          
          
          
-                     <p><label for="ville">Ville : </label>
-            <select id="ville" name="ville">
-                                <option value="choix1">Aucun</option>  
-<?php
- 
-$reponse = $bdd->query('SELECT villeID,ville_nom FROM mydb.villesfrance ORDER BY ville_nom ASC');
- 
-while ($donnees = $reponse->fetch())
-{
-?>
-           <option value="<?php echo $donnees['ville_nom']; ?>"> <?php echo $donnees['ville_nom']; ?></option>
-<?php
-}
- 
-?>
-          </select></p>
+         
+                     <p><label for="ville">Ville* : </label>
+            <input id="ville" name="ville">
+                                
+
          
          
          
@@ -189,7 +172,7 @@ while ($donnees = $reponse->fetch())
 
 </form>
 
-<script type="text/javascript" src="jsinscription.js"></script>
+
 
                 
 

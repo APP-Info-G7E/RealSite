@@ -12,34 +12,40 @@
     <body>
          
         <?php include("header.php"); ?>
-            <?php include("verifmonprofil.php"); ?>
+            
+<?php 
+$pseudo=$_SESSION['pseudo'];
+$req = $bdd->query("SELECT Nom, Prénom, Adresse, Département, CodePostal, Ville, Mail FROM mydb.utilisateursinscrits WHERE Pseudo = ".$bdd->quote($pseudo));
+$fuck = $req->fetch();
+?>
+        
         <div id="monprofil">
             
             
- <form id="formuinscription" method="post"  >
+ <form id="formuinscription" method="post" action="verifmonprofil.php"  >
      <fieldset>
       <legend>Modifier mon profil</legend>
      
                <p><label for="nom">Nom*  : </label>
-                    <?php include("verifmonprofil.php"); ?>
-                   <input type="text" name="nom" id="nom" value="<?php echo $donnees['Nom']; ?> "  /></p>
+                  
+                   <input type="text" name="nom" id="nom" value="<?php echo $fuck['Nom']; ?> "  /></p>
 
         
         
         
           <p><label for="prenom">Prénom*  : </label>
 
-              <input type="text" name="prenom" id="prenom" value="<?php echo $donnees['Prénom']; ?> "   /></p>
+              <input type="text" name="prenom" id="prenom" value="<?php echo $fuck['Prénom']; ?> "   /></p>
      
      
        <p><label for="adresse">Adresse :</label>
 
-              <input type="text" name="adresse" id="adresse" value="<?php echo $donnees['Adresse']; ?> "  /></p>
+              <input type="text" name="adresse" id="adresse" value="<?php echo $fuck['Adresse']; ?> "  /></p>
      
      
       <p><label for="departement">Département : </label>
             <select id="departement" name="departement">
-                                <option value="choix1"> Aucun  </option>  
+                                <option> <?php echo ''.$fuck['Département'].'';?>  </option>  
 <?php
  
 $reponse = $bdd->query('SELECT DISTINCT ville_departement FROM mydb.villesfrance');
@@ -56,7 +62,7 @@ while ($donnees = $reponse->fetch())
          
                <p><label for="codepostale">Code postal : </label>
             <select id="codepostale" name="codepostale">
-                                <option value="choix1">Aucun</option>  
+                                <option> <?php echo ''.$fuck['CodePostal'].'';?></option>   
 <?php
 
 $departement = $_POST['departement'];
@@ -78,7 +84,7 @@ while ($donnees = $reponse->fetch())
          
                      <p><label for="ville">Ville : </label>
             <select id="ville" name="ville">
-                                <option value="choix1">Aucun</option>  
+                                <option>  <?php echo ''.$fuck['Ville'].'';?></option>  
 <?php
  
 $reponse = $bdd->query('SELECT villeID,ville_nom FROM mydb.villesfrance ORDER BY ville_nom ASC');
@@ -110,7 +116,7 @@ while ($donnees = $reponse->fetch())
         </p>
         <p>
             <label for="mail">Adresse email*  : </label>
-            <input type="text" id="mail" name="mail" value="<?php echo $donnees['Mail']; ?>" /></p>
+            <input type="text" id="mail" name="mail" value=" <?php echo ''.$fuck['Mail'].'';?>"</p>
 
         						<p><input type="submit" value="Sauvegarder"  /></p>
  
@@ -124,7 +130,7 @@ while ($donnees = $reponse->fetch())
             
             
             
-            
+ <script type="text/javascript" src="jsmonprofil.js"></script>           
             
             
             

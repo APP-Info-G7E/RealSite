@@ -15,8 +15,14 @@ $codepostale = $_POST['codepostale'];
 $bdd = new PDO('mysql:host=localhost;dbname=mydb;charset=utf8', 'root', '');
 
 
+$query = $bdd->prepare("SELECT Pseudo FROM mydb.utilisateursinscrits WHERE Pseudo = '$pseudo' ");
+  $query->execute(array($pseudo));
+$data = $query->fetch();
 
-if ( $_POST['verif_code'] == $_SESSION['verif_code']){
+
+
+
+if ( $_POST['verif_code'] == $_SESSION['verif_code'] && !$data){
 
 $req = $bdd->prepare("INSERT INTO mydb.utilisateursinscrits (Pseudo, Nom, Prénom, Adresse, Mail, Pass, CodePostal, Département, Ville) VALUES ('$pseudo', '$nom', '$prenom', '$adresse', '$email', '$pass_hache', '$codepostale', '$departement', '$ville' )");
 
@@ -51,17 +57,24 @@ $req->execute(array(
     'Adresse' => $adresse));
         
 
-     echo'<script>alert("Bienvenue sur Pomme d`Happy, le happy marché des happy jardiniers !")</script>';
+     echo'<script>alert("Bienvenue sur Pomme d`Happy, le happyé market des happy jardiniers !")</script>';
      header ("Refresh: 0;URL=http://localhost/tests/index.php");
 
+   
+       
     
-    
-} else {  
-
+} else  {  
+if ($data) {
+        echo'<script>alert("Pseudo indisponible")</script>';
+      header ("Refresh: 0;URL=http://localhost/tests/inscription.php");
+   }
+    else {
  echo'<script>alert("Code incorrect")</script>';
       header ("Refresh: 0;URL=http://localhost/tests/inscription.php");
     
 }
+}
+
 
     
     

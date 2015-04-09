@@ -20,25 +20,29 @@ nomverif.addEventListener("blur", verifNom);
 }
 
 
-var prenomverif = document.getElementById("prenom"); 
+var adresseverif = document.getElementById("adresse"); 
 
-prenomverif.addEventListener("blur", verifPrenom);
+adresseverif.addEventListener("blur", verifAdresse);
 
-     function verifPrenom()
+     function verifAdresse()
 {
    
- if( prenomverif.value == "")  
+ if(document.getElementById("adresse").value == "")  
       {
-   prenomverif.style.backgroundColor ="#F35C3F";
-            alert("Le prénom est obligatoire");
+   document.getElementById("adresse").style.backgroundColor ="#F35C3F";
+            alert("L' adresse est obligatoire");
     return false;
    }
    else
    {
-     prenomverif.style.backgroundColor = "#48b31f";
-      return true; 
+      document.getElementById("adresse").style.backgroundColor = "#48b31f";
+       return true;
+      
    }  
 }
+
+
+
 
 var villeverif = document.getElementById("ville"); 
 
@@ -47,7 +51,7 @@ villeverif.addEventListener("blur", verifVille);
      function verifVille()
 {
    
- if(document.getElementById("ville").value == "choix1")  
+ if(document.getElementById("ville").value == "")  
       {
    document.getElementById("ville").style.backgroundColor ="#F35C3F";
             alert("La ville est obligatoire");
@@ -69,7 +73,7 @@ departementverif.addEventListener("blur", verifDepartement);
      function verifDepartement()
 {
    
- if(document.getElementById("departement").value == "choix1")  
+ if(document.getElementById("departement").value == "")  
       {
    document.getElementById("departement").style.backgroundColor ="#F35C3F";
             alert("Le département est obligatoire");
@@ -86,27 +90,44 @@ departementverif.addEventListener("blur", verifDepartement);
 
 
 
-var codepostalverif = document.getElementById("codepostale"); 
 
-codepostalverif.addEventListener("blur", verifCodePostal);
 
-     function verifCodePostal()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var prenomverif = document.getElementById("prenom"); 
+
+prenomverif.addEventListener("blur", verifPrenom);
+
+     function verifPrenom()
 {
    
- if( codepostalverif.value == "aucun")  
+ if( prenomverif.value == "")  
       {
-   codepostalverif.style.backgroundColor ="#F35C3F";
-   alert("Le code postal est obligatoire");
+   prenomverif.style.backgroundColor ="#F35C3F";
+            alert("Le prénom est obligatoire");
     return false;
    }
    else
    {
-     codepostalverif.style.backgroundColor = "#48b31f";
-       return true;
+     prenomverif.style.backgroundColor = "#48b31f";
+      return true; 
    }  
 }
-
-
 
 
 
@@ -136,65 +157,33 @@ pseudoverif.addEventListener("blur", verifPseudo);
 
 
 
-var mpverif = document.getElementById("mp"); 
-var mp2verif = document.getElementById("mp2");
 
-mp2verif.addEventListener("blur", verifMp2);
 
-     function verifMp2()
+
+
+
+
+
+
+var codepostalverif = document.getElementById("codepostale"); 
+
+codepostalverif.addEventListener("blur", verifCodePostal);
+
+     function verifCodePostal()
 {
    
- if( mp2verif.value != mpverif.value)  
+ if( codepostalverif.value == "")  
       {
-   mp2verif.style.backgroundColor ="#F35C3F";
-   mpverif.style.backgroundColor ="#F35C3F";
-   alert("Mots de passe différents");     
+   codepostalverif.style.backgroundColor ="#F35C3F";
+   alert("Le code postal est obligatoire");
     return false;
    }
-    else if(mp2verif.value == ""){
-         mp2verif.style.backgroundColor ="#F35C3F";
-         alert("La vérification du mot de passe est obligatoire"); 
-         return false;
-    }
-    
-   else if(mp2verif.value != "" && mp2verif.value == mpverif.value && mpverif.value != "") 
+   else
    {
-     mp2verif.style.backgroundColor = "#48b31f";
-       mpverif.style.backgroundColor = "#48b31f";
-        return true;
-      
+     codepostalverif.style.backgroundColor = "#48b31f";
+       return true;
    }  
 }
-
-
-
-mpverif.addEventListener("blur", verifMp);
-
-     function verifMp()
-{
-
-  if (mpverif.value.length < 4 || mpverif.value.length > 10){
-      alert("Votre mot de passe doit contenir entre 4 et 10 caractères");
-      mpverif.style.backgroundColor ="#F35C3F";
-       return false;
-  
-  }
-   
-          
-    else if(mpverif.value != "" && mpverif.value.length >= 4 && mpverif.value.length <= 10 ){
-        mpverif.style.backgroundColor = "#48b31f";
-         return true;
-    }
-}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -221,6 +210,32 @@ function verifMail2()
 
 
 
+var mpverif = document.getElementById("mp"); 
+var mp2verif = document.getElementById("mp2");
+
+mp2verif.addEventListener("blur", verifMp2);
+
+     function verifMp2()
+{
+   
+ if( mp2verif.value != mpverif.value)  
+      {
+   mp2verif.style.backgroundColor ="#F35C3F";
+   mpverif.style.backgroundColor ="#F35C3F";
+   alert("Mots de passe différents");     
+    return false;
+   }
+    else {
+         mp2verif.style.backgroundColor ="#48b31f";
+   mpverif.style.backgroundColor ="#48b31f";
+    }
+}
+
+
+
+
+
+
 var boutonverif = document.getElementById("formuinscription");
 boutonverif.addEventListener("submit", verifForm); 
 function verifForm()
@@ -235,16 +250,18 @@ function verifForm()
     
    var pseudoOk = verifPseudo(pseudoverif);
     
-   var mp2Ok = verifMp2(mp2verif);
     
-   var mpOk = verifMp(mpverif);
+   var adresseOk = verifAdresse(adresseverif);
     
-   var mailOk = verifMail2(mailverif);
+     var villeOk = verifVille(villeverif);
+    
+     var mailOk = verifMail2(mailverif);
 
    
 
-   if(pseudoOk && mailOk && nomOk && prenomOk && codepostalOk && mp2Ok && mpOk){
-
+   if(pseudoOk && mailOk && nomOk && prenomOk && codepostalOk && adresseOK && villeOK ){
+       
+alert("Profil mis à jour");
       return true;
    }
 
@@ -264,5 +281,12 @@ function verifForm()
 
 
  
+
+
+
+
+
+
+
 
 
